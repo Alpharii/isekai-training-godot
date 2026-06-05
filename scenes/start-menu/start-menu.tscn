@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://wequxwd236ea"]
+
+[ext_resource type="Texture2D" uid="uid://dr5slwlk0b5rs" path="res://assets/startMenu-assets/startMenu.png" id="1_2f450"]
+[ext_resource type="FontFile" uid="uid://dl57abw6fac5k" path="res://assets/fonts/GrapeSoda.ttf" id="2_s8lah"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54w20"]
+texture = ExtResource("1_2f450")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw3xj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="StartMenu" type="Control" unique_id=1267137470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2072695824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_54w20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1182792259]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.25
+offset_top = -33.0
+offset_right = 311.25
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=337943407]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s8lah")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+text = "New Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=541173480]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s8lah")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+text = "Load Game"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=483447428]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s8lah")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+text = "Option"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=249963168]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s8lah")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=388947260]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -379.5
+offset_top = 93.0
+offset_right = 379.5
+offset_bottom = 217.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_s8lah")
+theme_override_font_sizes/font_size = 124
+text = "Isekai Training"
+horizontal_alignment = 1
+vertical_alignment = 1
