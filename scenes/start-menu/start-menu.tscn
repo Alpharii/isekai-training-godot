@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wequxwd236ea"]
 
 [ext_resource type="Texture2D" uid="uid://dr5slwlk0b5rs" path="res://assets/startMenu-assets/startMenu.png" id="1_2f450"]
+[ext_resource type="Script" uid="uid://bap8lfdjxpymm" path="res://scenes/start-menu/start_menu.gd" id="1_s8lah"]
 [ext_resource type="FontFile" uid="uid://dl57abw6fac5k" path="res://assets/fonts/GrapeSoda.ttf" id="2_s8lah"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54w20"]
@@ -15,6 +16,24 @@ corner_radius_bottom_left = 14
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f450"]
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8lah"]
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw3xj"]
+
 [node name="StartMenu" type="Control" unique_id=1267137470]
 layout_mode = 3
 anchors_preset = 15
@@ -22,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s8lah")
 
 [node name="Panel" type="Panel" parent="." unique_id=2072695824]
 layout_mode = 1
@@ -47,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=337943407]
+[node name="newGame" type="Button" parent="VBoxContainer" unique_id=337943407]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -58,9 +78,12 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s8lah")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2f450")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s8lah")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dw3xj")
 text = "New Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=541173480]
+[node name="loadGame" type="Button" parent="VBoxContainer" unique_id=541173480]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -71,9 +94,12 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s8lah")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2f450")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s8lah")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dw3xj")
 text = "Load Game"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=483447428]
+[node name="option" type="Button" parent="VBoxContainer" unique_id=483447428]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -84,9 +110,12 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s8lah")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2f450")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s8lah")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dw3xj")
 text = "Option"
 
-[node name="Button4" type="Button" parent="VBoxContainer" unique_id=249963168]
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=249963168]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -97,6 +126,9 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s8lah")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_dw3xj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2f450")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s8lah")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dw3xj")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=388947260]
@@ -120,3 +152,8 @@ theme_override_font_sizes/font_size = 124
 text = "Isekai Training"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/newGame" to="." method="_on_newGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/loadGame" to="." method="_on_loadGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

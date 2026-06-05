@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dbyjbpryeqwhf"]
+
+[ext_resource type="FontFile" uid="uid://ki65a6ur6qsq" path="res://assets/fonts/MochiyPopOne-Regular.ttf" id="1_1cfjq"]
+
+[node name="CustomLabel" type="Label" unique_id=1939198173]
+offset_right = 191.0
+offset_bottom = 48.0
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_1cfjq")
+theme_override_font_sizes/font_size = 32
+text = "Test Text"

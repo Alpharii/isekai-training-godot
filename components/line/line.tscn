@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1ok5lk2iruny"]
+
+[node name="Line" type="ColorRect" unique_id=1567728320]
+anchors_preset = -1
+offset_right = 400.0
+offset_bottom = 3.0
