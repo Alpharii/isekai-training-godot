@@ -111,7 +111,7 @@ offset_top = 474.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" parent="CenterContainer" unique_id=200974353 instance=ExtResource("5_l34ud")]
+[node name="next_turn" parent="CenterContainer" unique_id=200974353 instance=ExtResource("5_l34ud")]
 custom_minimum_size = Vector2(700, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -196,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("12_otml6")
-tipe_stat = 1
+tipe_text = 1
 
 [node name="dexterity" parent="." unique_id=1122101672 instance=ExtResource("3_yqp1m")]
 layout_mode = 1
@@ -213,7 +213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("12_otml6")
-tipe_stat = 2
+tipe_text = 2
 
 [node name="magic" parent="." unique_id=804089711 instance=ExtResource("3_yqp1m")]
 layout_mode = 1
@@ -230,7 +230,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("12_otml6")
-tipe_stat = 3
+tipe_text = 3
 
 [node name="wisdom" parent="." unique_id=867277972 instance=ExtResource("3_yqp1m")]
 layout_mode = 1
@@ -247,7 +247,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("12_otml6")
-tipe_stat = 4
+tipe_text = 4
 
 [node name="charisma" parent="." unique_id=1277539473 instance=ExtResource("3_yqp1m")]
 layout_mode = 1
@@ -264,7 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("12_otml6")
-tipe_stat = 5
+tipe_text = 5
 
 [node name="exit_game" parent="." unique_id=1539780478 instance=ExtResource("5_l34ud")]
 layout_mode = 1
@@ -275,4 +275,22 @@ offset_bottom = -594.0
 theme_override_font_sizes/font_size = 20
 text = "Exit Game"
 
+[node name="turn" parent="." unique_id=644338609 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 393.0
+offset_top = -263.0
+offset_right = 522.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Turn: 0"
+script = ExtResource("12_otml6")
+tipe_text = 6
+
+[connection signal="pressed" from="CenterContainer/next_turn" to="." method="_on_next_turn_pressed"]
 [connection signal="pressed" from="exit_game" to="." method="_on_exit_game_pressed"]

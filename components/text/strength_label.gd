@@ -1,22 +1,31 @@
 extends Label
 
-enum StatType { STRENGTH, ENDURANCE, DEXTERITY, MAGIC, WISDOM, CHARISMA }
+func _ready() -> void:
+	add_to_group("ui_labels")
+	update_text()
 
-@export var tipe_stat: StatType = StatType.STRENGTH
+enum TextType { STRENGTH, ENDURANCE, DEXTERITY, MAGIC, WISDOM, CHARISMA, TURN }
+
+@export var tipe_text: TextType = TextType.STRENGTH
 
 const playerData = preload("res://resources/data/player-data.tres")
 
-func _ready() -> void:
-	match tipe_stat:
-		StatType.STRENGTH:
-			text = str(playerData.strength)
-		StatType.ENDURANCE:
-			text = str(playerData.endurance)
-		StatType.DEXTERITY:
-			text = str(playerData.dexterity)
-		StatType.MAGIC:
-			text = str(playerData.magic)
-		StatType.WISDOM:
-			text = str(playerData.wisdom)
-		StatType.CHARISMA:
-			text = str(playerData.charisma)
+func update_text() -> void:
+	var data = GlobalData.player_data
+	match tipe_text:
+		TextType.STRENGTH:
+			text = str(data.strength)
+		TextType.ENDURANCE:
+			text = str(data.endurance)
+		TextType.DEXTERITY:
+			text = str(data.dexterity)
+		TextType.MAGIC:
+			text = str(data.magic)
+		TextType.WISDOM:
+			text = str(data.wisdom)
+		TextType.CHARISMA:
+			text = str(data.charisma)
+		TextType.CHARISMA:
+			text = str(data.charisma)
+		TextType.TURN:
+			text = "Turn: " + str(data.turn)
