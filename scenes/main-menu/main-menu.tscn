@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg24eu2faxu5"]
 
 [ext_resource type="Texture2D" uid="uid://c3ceinawmhewh" path="res://assets/mainMenu-assets/mainMenu-background.png" id="1_7w8pu"]
+[ext_resource type="Script" uid="uid://cjonuqloy5fof" path="res://scenes/main-menu/main_menu.gd" id="1_b177j"]
 [ext_resource type="Texture2D" uid="uid://dlv57j58u5cs3" path="res://assets/mainMenu-assets/character-picture.png" id="2_nisa4"]
 [ext_resource type="PackedScene" uid="uid://dbyjbpryeqwhf" path="res://components/text/customLabel.tscn" id="3_yqp1m"]
 [ext_resource type="PackedScene" uid="uid://d1ok5lk2iruny" path="res://components/line/line.tscn" id="4_t0ril"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dpxa8wycu03l5" path="res://assets/stats/mag.png" id="9_eesjk"]
 [ext_resource type="Texture2D" uid="uid://bk3adpum3o2n6" path="res://assets/stats/wis.png" id="10_2mihs"]
 [ext_resource type="Texture2D" uid="uid://hnu1shcu5j77" path="res://assets/stats/char.png" id="11_25dq8"]
+[ext_resource type="Script" uid="uid://cwmuopsf0fj5b" path="res://components/text/strength_label.gd" id="12_otml6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhacv"]
 texture = ExtResource("1_7w8pu")
@@ -43,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b177j")
 
 [node name="Panel" type="Panel" parent="." unique_id=1582762393]
 layout_mode = 1
@@ -162,7 +165,7 @@ offset_right = 190.0
 offset_bottom = 390.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_mlkjl")
 
-[node name="CharacterName2" parent="." unique_id=1770177744 instance=ExtResource("3_yqp1m")]
+[node name="strength" parent="." unique_id=1770177744 instance=ExtResource("3_yqp1m")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,4 +178,101 @@ offset_right = -452.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "10"
+text = "0"
+script = ExtResource("12_otml6")
+
+[node name="endurance" parent="." unique_id=145722932 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -498.0
+offset_top = -32.0
+offset_right = -452.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_stat = 1
+
+[node name="dexterity" parent="." unique_id=1122101672 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -498.0
+offset_top = 18.0
+offset_right = -452.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_stat = 2
+
+[node name="magic" parent="." unique_id=804089711 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -82.0
+offset_right = -329.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_stat = 3
+
+[node name="wisdom" parent="." unique_id=867277972 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -32.0
+offset_right = -329.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_stat = 4
+
+[node name="charisma" parent="." unique_id=1277539473 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = 18.0
+offset_right = -329.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_stat = 5
+
+[node name="exit_game" parent="." unique_id=1539780478 instance=ExtResource("5_l34ud")]
+layout_mode = 1
+offset_left = 964.0
+offset_top = 17.0
+offset_right = -13.0
+offset_bottom = -594.0
+theme_override_font_sizes/font_size = 20
+text = "Exit Game"
+
+[connection signal="pressed" from="exit_game" to="." method="_on_exit_game_pressed"]
