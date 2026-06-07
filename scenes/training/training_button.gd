@@ -71,4 +71,6 @@ func _on_training_pressed() -> void:
 
 	# 3. Majukan turn dan update UI
 	data.turn += 1
+	if owner and owner.has_method("_check_turn_limit"):
+			owner._check_turn_limit()
 	get_tree().call_group("ui_labels", "update_text")
