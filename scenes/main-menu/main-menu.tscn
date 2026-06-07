@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bk3adpum3o2n6" path="res://assets/stats/wis.png" id="10_2mihs"]
 [ext_resource type="Texture2D" uid="uid://hnu1shcu5j77" path="res://assets/stats/char.png" id="11_25dq8"]
 [ext_resource type="Script" uid="uid://cwmuopsf0fj5b" path="res://components/text/strength_label.gd" id="12_otml6"]
+[ext_resource type="PackedScene" uid="uid://cq0c4ccxmip8w" path="res://scenes/training/training_button.tscn" id="14_eesjk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhacv"]
 texture = ExtResource("1_7w8pu")
@@ -117,155 +118,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Next Turn"
 
-[node name="str" type="Panel" parent="." unique_id=25798011]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 250.0
-offset_right = 68.0
-offset_bottom = 290.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_i504r")
-
-[node name="end" type="Panel" parent="." unique_id=460110973]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 300.0
-offset_right = 68.0
-offset_bottom = 340.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_3qpl2")
-
-[node name="dex" type="Panel" parent="." unique_id=574519965]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 350.0
-offset_right = 68.0
-offset_bottom = 390.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_my3i2")
-
-[node name="mag" type="Panel" parent="." unique_id=374557890]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 250.0
-offset_right = 190.0
-offset_bottom = 290.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_euh02")
-
-[node name="wis" type="Panel" parent="." unique_id=86567293]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 300.0
-offset_right = 190.0
-offset_bottom = 340.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ujgfs")
-
-[node name="char" type="Panel" parent="." unique_id=1019945263]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 350.0
-offset_right = 190.0
-offset_bottom = 390.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_mlkjl")
-
-[node name="strength" parent="." unique_id=1770177744 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -498.0
-offset_top = -82.0
-offset_right = -452.0
-offset_bottom = -34.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-
-[node name="endurance" parent="." unique_id=145722932 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -498.0
-offset_top = -32.0
-offset_right = -452.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 1
-
-[node name="dexterity" parent="." unique_id=1122101672 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -498.0
-offset_top = 18.0
-offset_right = -452.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 2
-
-[node name="magic" parent="." unique_id=804089711 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -82.0
-offset_right = -329.0
-offset_bottom = -34.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 3
-
-[node name="wisdom" parent="." unique_id=867277972 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -32.0
-offset_right = -329.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 4
-
-[node name="charisma" parent="." unique_id=1277539473 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = 18.0
-offset_right = -329.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 5
-
 [node name="exit_game" parent="." unique_id=1539780478 instance=ExtResource("5_l34ud")]
 layout_mode = 1
 offset_left = 964.0
@@ -291,6 +143,201 @@ grow_vertical = 2
 text = "Turn: 0"
 script = ExtResource("12_otml6")
 tipe_text = 6
+
+[node name="Stats" type="Control" parent="." unique_id=1731708023]
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 244.0
+offset_right = 241.0
+offset_bottom = 397.0
+
+[node name="str" type="Panel" parent="Stats" unique_id=25798011]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 47.0
+offset_bottom = 46.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_i504r")
+
+[node name="end" type="Panel" parent="Stats" unique_id=460110973]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 56.0
+offset_right = 47.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_3qpl2")
+
+[node name="dex" type="Panel" parent="Stats" unique_id=574519965]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 106.0
+offset_right = 47.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_my3i2")
+
+[node name="mag" type="Panel" parent="Stats" unique_id=374557890]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 6.0
+offset_right = 169.0
+offset_bottom = 46.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_euh02")
+
+[node name="wis" type="Panel" parent="Stats" unique_id=86567293]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 56.0
+offset_right = 169.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ujgfs")
+
+[node name="char" type="Panel" parent="Stats" unique_id=1019945263]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 106.0
+offset_right = 169.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mlkjl")
+
+[node name="strength" parent="Stats" unique_id=1770177744 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -78.5
+offset_right = -7.0
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+
+[node name="endurance" parent="Stats" unique_id=145722932 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -28.5
+offset_right = -7.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_text = 1
+
+[node name="dexterity" parent="Stats" unique_id=1122101672 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 21.5
+offset_right = -7.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_text = 2
+
+[node name="magic" parent="Stats" unique_id=804089711 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -78.5
+offset_right = 116.0
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_text = 3
+
+[node name="wisdom" parent="Stats" unique_id=867277972 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -28.5
+offset_right = 116.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_text = 4
+
+[node name="charisma" parent="Stats" unique_id=1277539473 instance=ExtResource("3_yqp1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = 21.5
+offset_right = 116.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("12_otml6")
+tipe_text = 5
+
+[node name="Button2" parent="." unique_id=1512095411 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 635.0
+offset_top = 243.0
+offset_right = -353.0
+offset_bottom = -369.0
+
+[node name="Button" parent="." unique_id=524975883 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 632.0
+offset_top = 321.0
+offset_right = -354.0
+offset_bottom = -291.0
+aktivitas = 1
+
+[node name="Button3" parent="." unique_id=1192150451 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 399.0
+offset_right = -358.0
+offset_bottom = -213.0
+aktivitas = 2
+
+[node name="Button4" parent="." unique_id=90342964 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 850.0
+offset_top = 239.0
+offset_right = -138.0
+offset_bottom = -373.0
+aktivitas = 3
+
+[node name="Button5" parent="." unique_id=1196099057 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 853.0
+offset_top = 322.0
+offset_right = -135.0
+offset_bottom = -290.0
+aktivitas = 4
 
 [connection signal="pressed" from="CenterContainer/next_turn" to="." method="_on_next_turn_pressed"]
 [connection signal="pressed" from="exit_game" to="." method="_on_exit_game_pressed"]

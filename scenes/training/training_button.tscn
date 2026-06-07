@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cq0c4ccxmip8w"]
+
+[ext_resource type="PackedScene" uid="uid://bjch26qu3fes5" path="res://components/button/button.tscn" id="1_o7t4v"]
+[ext_resource type="Script" uid="uid://dwn7wdhtlqdqq" path="res://scenes/training/training_button.gd" id="2_5phym"]
+
+[node name="Button" unique_id=200974353 instance=ExtResource("1_o7t4v")]
+offset_right = -1001.0
+offset_bottom = -601.0
+theme_override_font_sizes/font_size = 20
+text = "Training"
+script = ExtResource("2_5phym")

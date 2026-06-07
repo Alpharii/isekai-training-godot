@@ -8,5 +8,6 @@ class_name PlayerData;
 @export var wisdom := 11;
 @export var dexterity := 9;
 @export var charisma := 10;
+@export var energy := 100;
 
 @export var turn := 1;
