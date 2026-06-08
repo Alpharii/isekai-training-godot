@@ -152,6 +152,7 @@ theme_override_font_sizes/font_size = 124
 text = "Isekai Training"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("1_s8lah")
 
 [connection signal="pressed" from="VBoxContainer/newGame" to="." method="_on_newGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/loadGame" to="." method="_on_loadGame_pressed"]

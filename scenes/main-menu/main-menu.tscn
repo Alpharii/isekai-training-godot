@@ -14,12 +14,47 @@
 [ext_resource type="Texture2D" uid="uid://hnu1shcu5j77" path="res://assets/stats/char.png" id="11_25dq8"]
 [ext_resource type="Script" uid="uid://cwmuopsf0fj5b" path="res://components/text/customLabel.gd" id="12_otml6"]
 [ext_resource type="PackedScene" uid="uid://cq0c4ccxmip8w" path="res://scenes/training/training_button.tscn" id="14_eesjk"]
+[ext_resource type="Script" uid="uid://ckdxolw4u5fy5" path="res://scenes/training/training_data.gd" id="15_2mihs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhacv"]
 texture = ExtResource("1_7w8pu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqp1m"]
 texture = ExtResource("2_nisa4")
+
+[sub_resource type="Resource" id="Resource_2mihs"]
+script = ExtResource("15_2mihs")
+warna_tombol = Color(1, 0, 0, 1)
+min_stat_1 = 15
+max_stat_1 = 20
+min_stat_2 = 10
+max_stat_2 = 15
+metadata/_custom_type_script = "uid://ckdxolw4u5fy5"
+
+[sub_resource type="Resource" id="Resource_25dq8"]
+script = ExtResource("15_2mihs")
+nama_latihan = "Rest"
+desc_latihan = "+10 Energy"
+energy_cost = -10
+max_stat_1 = 0
+max_stat_2 = 0
+metadata/_custom_type_script = "uid://ckdxolw4u5fy5"
+
+[sub_resource type="Resource" id="Resource_i504r"]
+script = ExtResource("15_2mihs")
+nama_latihan = "Magic Training"
+desc_latihan = "+++MAG ++WIS +CHAR"
+warna_tombol = Color(0.5970951, 4.2018146e-05, 0.4767872, 1)
+energy_cost = 40
+stat_1 = "magic"
+min_stat_1 = 15
+max_stat_1 = 25
+stat_2 = "wisdom"
+min_stat_2 = 10
+max_stat_2 = 20
+stat_3 = "charisma"
+max_stat_3 = 10
+metadata/_custom_type_script = "uid://ckdxolw4u5fy5"
 
 [node name="MainMenu" type="Control" unique_id=1390568717]
 layout_mode = 3
@@ -85,6 +120,30 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Character Sheet"
 
+[node name="Button" parent="." unique_id=200974353 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 546.0
+offset_top = 239.0
+offset_right = -392.0
+offset_bottom = -315.0
+training_resource = SubResource("Resource_2mihs")
+
+[node name="Button2" parent="." unique_id=159889203 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 792.0
+offset_top = 236.0
+offset_right = -115.0
+offset_bottom = -318.0
+training_resource = SubResource("Resource_25dq8")
+
+[node name="Button3" parent="." unique_id=316944199 instance=ExtResource("14_eesjk")]
+layout_mode = 1
+offset_left = 534.0
+offset_top = 355.0
+offset_right = -375.0
+offset_bottom = -196.0
+training_resource = SubResource("Resource_i504r")
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=351985635]
 layout_mode = 1
 anchors_preset = 15
@@ -94,7 +153,7 @@ offset_top = 474.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="next_turn" parent="CenterContainer" unique_id=200974353 instance=ExtResource("5_l34ud")]
+[node name="next_turn" parent="CenterContainer" unique_id=388015647 instance=ExtResource("5_l34ud")]
 custom_minimum_size = Vector2(700, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -347,45 +406,6 @@ text = "0"
 vertical_alignment = 1
 script = ExtResource("12_otml6")
 tipe_text = 5
-
-[node name="Button2" parent="." unique_id=1512095411 instance=ExtResource("14_eesjk")]
-layout_mode = 1
-offset_left = 635.0
-offset_top = 243.0
-offset_right = -353.0
-offset_bottom = -369.0
-
-[node name="Button" parent="." unique_id=524975883 instance=ExtResource("14_eesjk")]
-layout_mode = 1
-offset_left = 632.0
-offset_top = 321.0
-offset_right = -354.0
-offset_bottom = -291.0
-aktivitas = 1
-
-[node name="Button3" parent="." unique_id=1192150451 instance=ExtResource("14_eesjk")]
-layout_mode = 1
-offset_left = 630.0
-offset_top = 399.0
-offset_right = -358.0
-offset_bottom = -213.0
-aktivitas = 2
-
-[node name="Button4" parent="." unique_id=90342964 instance=ExtResource("14_eesjk")]
-layout_mode = 1
-offset_left = 850.0
-offset_top = 239.0
-offset_right = -138.0
-offset_bottom = -373.0
-aktivitas = 3
-
-[node name="Button5" parent="." unique_id=1196099057 instance=ExtResource("14_eesjk")]
-layout_mode = 1
-offset_left = 853.0
-offset_top = 322.0
-offset_right = -135.0
-offset_bottom = -290.0
-aktivitas = 4
 
 [connection signal="pressed" from="CenterContainer/next_turn" to="." method="_on_next_turn_pressed"]
 [connection signal="pressed" from="exit_game" to="." method="_on_exit_game_pressed"]

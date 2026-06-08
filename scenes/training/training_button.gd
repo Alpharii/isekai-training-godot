@@ -1,76 +1,79 @@
 extends Button
 class_name TrainingButton
 
-# 1. Tentukan daftar nama latihan (bisa kamu tambah sesuka hati)
-enum TrainingActivity { PUSH_UP, SHOOTING, READING, MEDITATION, DANCING }
-
-@export_category("Training Configuration")
-@export var aktivitas: TrainingActivity = TrainingActivity.PUSH_UP
-
-# Nilai RNG (Rentang Min dan Max bonus stat)
-@export var min_bonus: int = 5
-@export var max_bonus: int = 10
-
-# Pilihan warna tombol lewat Inspector
-@export var button_color: Color = Color.WHITE
+@export var training_resource: TrainingData
 
 func _ready() -> void:
 	pressed.connect(_on_training_pressed)
-	
-	# Jalankan setup visual saat game dimulai
 	_setup_button_visual()
 
-# Fungsi untuk otomatisasi Teks dan Warna Tombol
 func _setup_button_visual() -> void:
-	# Mengatur teks berdasarkan aktivitas yang dipilih
-	match aktivitas:
-		TrainingActivity.PUSH_UP:
-			text = "Push Up\n(+STR, +END)"
-		TrainingActivity.SHOOTING:
-			text = "Latihan Menembak\n(+DEX, +STR)"
-		TrainingActivity.READING:
-			text = "Membaca Buku\n(+WIS, +MAG)"
-		TrainingActivity.MEDITATION:
-			text = "Meditasi\n(+CHA, +WIS)"
-		TrainingActivity.DANCING:
-			text = "Kelas Dansa\n(+CHA, +DEX)"
-			
-	# Mengatur warna modulasi tombol (Self Modulate agar style asli/font tidak rusak)
-	self.self_modulate = button_color
+	if not training_resource:
+		return
+		
+	var res = training_resource
+	var active_stats: Array[String] = []
+	
+	if res.max_stat_1 > 0:
+		active_stats.append(res.stat_1.to_upper().left(3))
+	if res.max_stat_2 > 0:
+		active_stats.append(res.stat_2.to_upper().left(3))
+	if res.max_stat_3 > 0:
+		active_stats.append(res.stat_3.to_upper().left(3))
+		
+	var stat_text = ", ".join(active_stats)
+	
+	# 1. Pastikan teks bawaan Button utama dikosongkan agar tidak tumpang tindih
+	text = ""
+	
+	# 2. Masukkan Judul ke TitleLabel
+	if has_node("VBoxContainer/TitleContainer/TitleLabel"):
+		$VBoxContainer/TitleContainer/TitleLabel.text = res.nama_latihan
+		
+	# 3. Masukkan Deskripsi ke DescLabel dengan format baru tanpa tanda plus
+	if has_node("VBoxContainer/DescContainer/DescLabel"):
+		$VBoxContainer/DescContainer/DescLabel.text = res.desc_latihan
+	
+	if has_node("VBoxContainer/DescContainer/EneLabel"):
+		$VBoxContainer/DescContainer/EneLabel.text = "-" + str(res.energy_cost) + "Energy"
+	
+	# Mengatur warna visual tombol
+	self.self_modulate = res.warna_tombol
 
 func _on_training_pressed() -> void:
+	if not training_resource:
+		return
+		
 	var data = GlobalData.player_data
+	var res = training_resource
 	
-	# Mengambil angka acak antara min_bonus sampai max_bonus (inklusif)
-	var rng_bonus_1 = randi_range(min_bonus, max_bonus)
-	var rng_bonus_2 = randi_range(min_bonus, max_bonus)
+	# Kurangi energy sesuai cost dari resource
+	data.energy -= res.energy_cost
 	
-	# 2. Eksekusi logika multi-stat & RNG berdasarkan aktivitas
-	match aktivitas:
-		TrainingActivity.PUSH_UP:
-			data.strength += rng_bonus_1
-			data.endurance += rng_bonus_2
-			print("Push Up selesai! STR +", rng_bonus_1, " | END +", rng_bonus_2)
-			
-		TrainingActivity.SHOOTING:
-			data.dexterity += rng_bonus_1
-			data.strength += rng_bonus_2
-			print("Menembak selesai! DEX +", rng_bonus_1, " | STR +", rng_bonus_2)
-			
-		TrainingActivity.READING:
-			data.wisdom += rng_bonus_1
-			data.magic += rng_bonus_2
-			
-		TrainingActivity.MEDITATION:
-			data.charisma += rng_bonus_1
-			data.wisdom += rng_bonus_2
-			
-		TrainingActivity.DANCING:
-			data.charisma += rng_bonus_1
-			data.dexterity += rng_bonus_2
+	var debug_log = res.nama_latihan + " selesai! "
+	
+	if res.max_stat_1 > 0 and res.stat_1 in data:
+		var bonus = randi_range(res.min_stat_1, res.max_stat_1)
+		data[res.stat_1] += bonus
+		debug_log += "%s +%d | " % [res.stat_1, bonus]
+		
+	if res.max_stat_2 > 0 and res.stat_2 in data:
+		var bonus = randi_range(res.min_stat_2, res.max_stat_2)
+		data[res.stat_2] += bonus
+		debug_log += "%s +%d | " % [res.stat_2, bonus]
+		
+	if res.max_stat_3 > 0 and res.stat_3 in data:
+		var bonus = randi_range(res.min_stat_3, res.max_stat_3)
+		data[res.stat_3] += bonus
+		debug_log += "%s +%d | " % [res.stat_3, bonus]
+		
+	print(debug_log, "Sisa Stamina: ", data.energy)
 
-	# 3. Majukan turn dan update UI
+	# Update turn dan UI
 	data.turn += 1
-	if owner and owner.has_method("_check_turn_limit"):
-			owner._check_turn_limit()
+	
+	# Kita panggil satu fungsi utama pengecekan kondisi game di main menu
+	if owner and owner.has_method("_check_game_conditions"):
+		owner._check_game_conditions()
+		
 	get_tree().call_group("ui_labels", "update_text")

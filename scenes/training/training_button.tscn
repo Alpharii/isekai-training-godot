@@ -2,10 +2,70 @@
 
 [ext_resource type="PackedScene" uid="uid://bjch26qu3fes5" path="res://components/button.tscn" id="1_o7t4v"]
 [ext_resource type="Script" uid="uid://dwn7wdhtlqdqq" path="res://scenes/training/training_button.gd" id="2_5phym"]
+[ext_resource type="PackedScene" uid="uid://dbyjbpryeqwhf" path="res://components/text/customLabel.tscn" id="3_i7vbo"]
+[ext_resource type="PackedScene" uid="uid://d1ok5lk2iruny" path="res://components/line.tscn" id="4_i7vbo"]
+[ext_resource type="FontFile" uid="uid://ki65a6ur6qsq" path="res://assets/fonts/MochiyPopOne-Regular.ttf" id="4_q3jtn"]
 
 [node name="Button" unique_id=200974353 instance=ExtResource("1_o7t4v")]
-offset_right = -1001.0
-offset_bottom = -601.0
+offset_right = -909.0
+offset_bottom = -555.0
 theme_override_font_sizes/font_size = 20
-text = "Training"
+text = ""
 script = ExtResource("2_5phym")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0" unique_id=225892416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="TitleContainer" type="VBoxContainer" parent="VBoxContainer" index="0" unique_id=470669181]
+custom_minimum_size = Vector2(0, 43)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" parent="VBoxContainer/TitleContainer" index="0" unique_id=1939198173 instance=ExtResource("3_i7vbo")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 6
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line" parent="VBoxContainer/TitleContainer" index="1" unique_id=1567728320 instance=ExtResource("4_i7vbo")]
+custom_minimum_size = Vector2(0, 1.5)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DescContainer" type="VBoxContainer" parent="VBoxContainer" index="1" unique_id=2070366827]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="DescLabel" type="Label" parent="VBoxContainer/DescContainer" index="0" unique_id=690573565]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q3jtn")
+theme_override_font_sizes/font_size = 14
+text = "++STR +END "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EneLabel" type="Label" parent="VBoxContainer/DescContainer" index="1" unique_id=1817491884]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q3jtn")
+theme_override_font_sizes/font_size = 14
+text = "-10 Energy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DescContainer" index="2" unique_id=1332791740]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
