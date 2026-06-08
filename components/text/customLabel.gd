@@ -4,7 +4,7 @@ func _ready() -> void:
 	add_to_group("ui_labels")
 	update_text()
 
-enum TextType { STRENGTH, ENDURANCE, DEXTERITY, MAGIC, WISDOM, CHARISMA, TURN }
+enum TextType { STRENGTH, ENDURANCE, DEXTERITY, MAGIC, WISDOM, CHARISMA, TURN, NILL }
 
 @export var tipe_text: TextType = TextType.STRENGTH
 
@@ -29,3 +29,5 @@ func update_text() -> void:
 			text = str(data.charisma)
 		TextType.TURN:
 			text = "Turn: " + str(data.turn)
+		TextType.NILL:
+			text = "F"

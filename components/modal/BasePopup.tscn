@@ -17,6 +17,9 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqrpj"]
+corner_detail = 13
+
 [node name="BasePopup" type="CanvasLayer" unique_id=53439281]
 layer = 10
 script = ExtResource("1_bqrpj")
@@ -71,6 +74,10 @@ size_flags_horizontal = 1
 theme_override_font_sizes/font_size = 26
 text = "Your Energy Has Been Depleted"
 horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/TextContainer" unique_id=1823699657]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqrpj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=665933574]
 layout_mode = 2

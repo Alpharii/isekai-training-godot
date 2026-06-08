@@ -35,10 +35,10 @@ func _check_turn_limit() -> void:
 	
 	# Jika turn sudah mencapai atau melewati batas maksimal
 	if data.turn >= MAX_TURN:
-		_show_game_over_popup(data)
+		_show_game_ending_popup(data)
 
 # 4. Fungsi baru untuk merakit dan menampilkan Pop-up Game Over
-func _show_game_over_popup(data: PlayerData) -> void:
+func _show_game_ending_popup(data: PlayerData) -> void:
 	# Buat instance/object dari scene pop-up
 	var popup = POPUP_SCENE.instantiate() as BasePopup
 	add_child(popup)

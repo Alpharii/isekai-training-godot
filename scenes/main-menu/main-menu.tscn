@@ -21,24 +21,6 @@ texture = ExtResource("1_7w8pu")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqp1m"]
 texture = ExtResource("2_nisa4")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i504r"]
-texture = ExtResource("6_cmejy")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3qpl2"]
-texture = ExtResource("7_otml6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_my3i2"]
-texture = ExtResource("8_b177j")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_euh02"]
-texture = ExtResource("9_eesjk")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujgfs"]
-texture = ExtResource("10_2mihs")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlkjl"]
-texture = ExtResource("11_25dq8")
-
 [node name="MainMenu" type="Control" unique_id=1390568717]
 layout_mode = 3
 anchors_preset = 15
@@ -144,159 +126,225 @@ text = "Turn: 0"
 script = ExtResource("12_otml6")
 tipe_text = 6
 
-[node name="Stats" type="Control" parent="." unique_id=1731708023]
-anchors_preset = 0
-offset_left = 21.0
-offset_top = 244.0
-offset_right = 241.0
-offset_bottom = 397.0
-
-[node name="str" type="Panel" parent="Stats" unique_id=25798011]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 47.0
-offset_bottom = 46.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_i504r")
-
-[node name="end" type="Panel" parent="Stats" unique_id=460110973]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 56.0
-offset_right = 47.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_3qpl2")
-
-[node name="dex" type="Panel" parent="Stats" unique_id=574519965]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 106.0
-offset_right = 47.0
-offset_bottom = 146.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_my3i2")
-
-[node name="mag" type="Panel" parent="Stats" unique_id=374557890]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 6.0
-offset_right = 169.0
-offset_bottom = 46.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_euh02")
-
-[node name="wis" type="Panel" parent="Stats" unique_id=86567293]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 56.0
-offset_right = 169.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ujgfs")
-
-[node name="char" type="Panel" parent="Stats" unique_id=1019945263]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 106.0
-offset_right = 169.0
-offset_bottom = 146.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_mlkjl")
-
-[node name="strength" parent="Stats" unique_id=1770177744 instance=ExtResource("3_yqp1m")]
+[node name="StatContainer" type="VBoxContainer" parent="." unique_id=1452244563]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -78.5
-offset_right = -7.0
-offset_bottom = -30.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.5
+offset_top = 241.5
+offset_right = -622.0
+offset_bottom = -232.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Container_1" type="HBoxContainer" parent="StatContainer" unique_id=28378139]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Strength" type="HBoxContainer" parent="StatContainer/Container_1" unique_id=537375836]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="rank" parent="StatContainer/Container_1/Strength" unique_id=1898777263 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_1/Strength" unique_id=1762963707]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="str" type="TextureRect" parent="StatContainer/Container_1/Strength/HBoxContainer" unique_id=665136087]
+layout_mode = 2
+texture = ExtResource("6_cmejy")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="strength" parent="StatContainer/Container_1/Strength/HBoxContainer" unique_id=1770177744 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
 text = "0"
+vertical_alignment = 1
 script = ExtResource("12_otml6")
 
-[node name="endurance" parent="Stats" unique_id=145722932 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -28.5
-offset_right = -7.0
-offset_bottom = 19.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-script = ExtResource("12_otml6")
-tipe_text = 1
+[node name="Magic" type="HBoxContainer" parent="StatContainer/Container_1" unique_id=948298988]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
 
-[node name="dexterity" parent="Stats" unique_id=1122101672 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = 21.5
-offset_right = -7.0
-offset_bottom = 69.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
+[node name="rank" parent="StatContainer/Container_1/Magic" unique_id=141343192 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
 script = ExtResource("12_otml6")
-tipe_text = 2
+tipe_text = 7
 
-[node name="magic" parent="Stats" unique_id=804089711 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 70.0
-offset_top = -78.5
-offset_right = 116.0
-offset_bottom = -30.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_1/Magic" unique_id=538706340]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="mag" type="TextureRect" parent="StatContainer/Container_1/Magic/HBoxContainer" unique_id=1255585464]
+layout_mode = 2
+texture = ExtResource("9_eesjk")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="magic" parent="StatContainer/Container_1/Magic/HBoxContainer" unique_id=1389955782 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
 text = "0"
+vertical_alignment = 1
 script = ExtResource("12_otml6")
 tipe_text = 3
 
-[node name="wisdom" parent="Stats" unique_id=867277972 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 70.0
-offset_top = -28.5
-offset_right = 116.0
-offset_bottom = 19.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Container_2" type="HBoxContainer" parent="StatContainer" unique_id=712652350]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Endurance" type="HBoxContainer" parent="StatContainer/Container_2" unique_id=728137572]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="rank" parent="StatContainer/Container_2/Endurance" unique_id=1998166261 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_2/Endurance" unique_id=1629657152]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="end" type="TextureRect" parent="StatContainer/Container_2/Endurance/HBoxContainer" unique_id=1019555809]
+layout_mode = 2
+texture = ExtResource("7_otml6")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="endurance" parent="StatContainer/Container_2/Endurance/HBoxContainer" unique_id=1877566350 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
 text = "0"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 1
+
+[node name="Wisdom" type="HBoxContainer" parent="StatContainer/Container_2" unique_id=1112553298]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="rank" parent="StatContainer/Container_2/Wisdom" unique_id=2028287301 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_2/Wisdom" unique_id=542036336]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="wis" type="TextureRect" parent="StatContainer/Container_2/Wisdom/HBoxContainer" unique_id=852449035]
+layout_mode = 2
+texture = ExtResource("10_2mihs")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="wisdom" parent="StatContainer/Container_2/Wisdom/HBoxContainer" unique_id=228406565 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
+text = "0"
+vertical_alignment = 1
 script = ExtResource("12_otml6")
 tipe_text = 4
 
-[node name="charisma" parent="Stats" unique_id=1277539473 instance=ExtResource("3_yqp1m")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 70.0
-offset_top = 21.5
-offset_right = 116.0
-offset_bottom = 69.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Container_3" type="HBoxContainer" parent="StatContainer" unique_id=1945155061]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Dexterity" type="HBoxContainer" parent="StatContainer/Container_3" unique_id=1640183552]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="rank" parent="StatContainer/Container_3/Dexterity" unique_id=906403574 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_3/Dexterity" unique_id=2062331393]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="dex" type="TextureRect" parent="StatContainer/Container_3/Dexterity/HBoxContainer" unique_id=294359690]
+layout_mode = 2
+texture = ExtResource("8_b177j")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="dexterity" parent="StatContainer/Container_3/Dexterity/HBoxContainer" unique_id=801707556 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
 text = "0"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 2
+
+[node name="Charisma" type="HBoxContainer" parent="StatContainer/Container_3" unique_id=873755959]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="rank" parent="StatContainer/Container_3/Charisma" unique_id=469995578 instance=ExtResource("3_yqp1m")]
+layout_mode = 2
+text = "F"
+vertical_alignment = 1
+script = ExtResource("12_otml6")
+tipe_text = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatContainer/Container_3/Charisma" unique_id=1998596380]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="char" type="TextureRect" parent="StatContainer/Container_3/Charisma/HBoxContainer" unique_id=1415235871]
+layout_mode = 2
+texture = ExtResource("11_25dq8")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="charisma" parent="StatContainer/Container_3/Charisma/HBoxContainer" unique_id=584957950 instance=ExtResource("3_yqp1m")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 1
+text = "0"
+vertical_alignment = 1
 script = ExtResource("12_otml6")
 tipe_text = 5
 
