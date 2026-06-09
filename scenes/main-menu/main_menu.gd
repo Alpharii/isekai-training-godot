@@ -3,7 +3,10 @@ extends Control
 const POPUP_SCENE = preload("res://components/modal/BasePopup.tscn")
 const MAX_TURN: int = 5
 
+@onready var energy_bar: ProgressBar = $Energy/EnergyBar
+
 func _ready() -> void:
+	_update_ui_elements()
 	_check_game_conditions()
 
 func _on_exit_game_pressed() -> void:
@@ -14,7 +17,22 @@ func _on_next_turn_pressed() -> void:
 	print("Turn saat ini: ", GlobalData.player_data.turn)
 	
 	get_tree().call_group("ui_labels", "update_text")
+	_update_ui_elements()
 	_check_game_conditions()
+	
+# 2. Fungsi terpusat untuk mengupdate seluruh UI termasuk Bar Energi
+func _update_ui_elements() -> void:
+	var data = GlobalData.player_data
+	
+	# Update seluruh label stat yang masuk grup "ui_labels"
+	get_tree().call_group("ui_labels", "update_text")
+	
+	# Update nilai bar energi secara langsung dari data player
+	if energy_bar:
+		energy_bar.value = data.energy
+		
+	# Opsional: Jika kamu punya Max Energy dinamis, kamu juga bisa set:
+	# energy_bar.max_value = data.max_energy
 
 # Fungsi Pengecekan Terpadu (Turn & Stamina)
 func _check_game_conditions() -> void:

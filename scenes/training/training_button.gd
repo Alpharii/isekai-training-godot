@@ -72,8 +72,14 @@ func _on_training_pressed() -> void:
 	# Update turn dan UI
 	data.turn += 1
 	
-	# Kita panggil satu fungsi utama pengecekan kondisi game di main menu
-	if owner and owner.has_method("_check_game_conditions"):
-		owner._check_game_conditions()
+	# 2. PANGGIL UPDATE UI DAN CEK KONDISI DI MAIN MENU VIA OWNER
+	if owner:
+		if owner.has_method("_update_ui_elements"):
+			owner._update_ui_elements() # Ini yang akan membuat EnergyBar langsung berkurang di layar
+		if owner and owner.has_method("_check_game_conditions"):
+			owner._check_game_conditions() # Ini untuk memicu pop-up Game Over jika energy habis
+		
+	# Tetap panggil grup untuk label stat individual yang menggunakan grup
+	get_tree().call_group("ui_labels", "update_text")
 		
 	get_tree().call_group("ui_labels", "update_text")
