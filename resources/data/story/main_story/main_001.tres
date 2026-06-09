@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EventStoryData" format=3 uid="uid://x1m60dxbtok6"]
+
+[ext_resource type="Script" uid="uid://120ha7dfu6kh" path="res://resources/data/story/script/DialogLine.gd" id="1_mwmj8"]
+[ext_resource type="Script" uid="uid://k8pi45wi06b8" path="res://resources/data/story/script/EventStoryData.gd" id="2_ij2od"]
+
+[sub_resource type="Resource" id="Resource_31rnu"]
+script = ExtResource("1_mwmj8")
+metadata/_custom_type_script = "uid://120ha7dfu6kh"
+
+[resource]
+script = ExtResource("2_ij2od")
+dialog_lines = Array[ExtResource("1_mwmj8")]([SubResource("Resource_31rnu"), null, null, null, null, null])
+metadata/_custom_type_script = "uid://k8pi45wi06b8"

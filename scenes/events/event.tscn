@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b83iuoma1mppg"]
+
+[ext_resource type="Texture2D" uid="uid://bbngofdlt3tww" path="res://assets/event-assets/main-story/summoned.jpeg" id="1_f07fq"]
+[ext_resource type="Texture2D" uid="uid://bejkx1dyrb5b0" path="res://assets/event-assets/main-story/emiya.png" id="2_pu01w"]
+[ext_resource type="PackedScene" uid="uid://dbyjbpryeqwhf" path="res://components/text/customLabel.tscn" id="3_lm80g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhet8"]
+bg_color = Color(0, 0, 0, 0.6627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yudsv"]
+bg_color = Color(0.05882353, 0.16470589, 0.42745098, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Event" type="Control" unique_id=298168247]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1940198803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f07fq")
+stretch_mode = 6
+
+[node name="CharacterTexture" type="TextureRect" parent="." unique_id=610283630]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.5
+offset_top = -534.0
+offset_right = 186.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_pu01w")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DialongBox" type="Panel" parent="." unique_id=1951127790]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -153.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhet8")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialongBox" unique_id=1564050045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="TextLabel" parent="DialongBox/MarginContainer" unique_id=1939198173 instance=ExtResource("3_lm80g")]
+clip_contents = true
+custom_minimum_size = Vector2(1050, 75)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 31
+text = "test test test test test test test test test test test test test test test test test test test test test test test test test test "
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1363995656]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 459.0
+offset_right = 204.0
+offset_bottom = 508.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yudsv")
+
+[node name="SpeakerLabel" parent="Panel" unique_id=2097648908 instance=ExtResource("3_lm80g")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Emiya Shirou"
+horizontal_alignment = 1
+vertical_alignment = 1
